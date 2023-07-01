@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "repository": "https://github.com/dinhdkhoa/Learning-Authentication.git",
+  "author": "dinhdkhoa <kddinh212@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "watch": "node-sass -w src/resources/scss/ --output src/public/css/"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0",
+    "nodemon": "^2.0.22"
+  }
+}
