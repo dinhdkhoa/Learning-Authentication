@@ -1,12 +1,12 @@
 const siteControllers = {
   getHomePage(req, res) {
-    res.render("home")
+    res.render('home')
   },
   getSearchPage(req, res) {
-    res.render("search")
+    res.render('search')
   },
   postSearchPage(req, res) {
-    res.render("search")
+    res.render('search')
   }
 }
 

@@ -1,11 +1,11 @@
-import express from "express"
-import NewsControllers from "../app/controllers/NewsControllers.js"
+import express from 'express'
+import NewsControllers from '../app/controllers/NewsControllers.js'
 
 const router = express.Router()
 
-router.route("/:slug").get(NewsControllers.getNewsDetail)
+router.route('/:slug').get(NewsControllers.getNewsDetail)
 
-router.route("/").get(NewsControllers.getNews)
+router.route('/').get(NewsControllers.getNews)
 
 const NewsRoutes = router
 
