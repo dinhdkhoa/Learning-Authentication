@@ -1,6 +1,13 @@
+import CoursesModel from '../models/Course.js'
+
 const siteControllers = {
-  getHomePage(req, res) {
-    res.render('home')
+  async getHomePage(req, res) {
+    try {
+      const courses = await CoursesModel.find({})
+      res.json(courses)
+    } catch (error) {
+      res.status(400).json({ error })
+    }
   },
   getSearchPage(req, res) {
     res.render('search')
