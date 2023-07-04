@@ -1,1 +1,19 @@
-<h1>Hello</h1>
+<div class='container px-4'>
+  <div class='row gap-5 mt-5 justify-content-center'>
+    {{#each courses}}
+      <div class='card' style='width: 18rem;'>
+        <a href='/courses/{{this.slug}}'>
+          <img src={{this.img}} class='card-img-top' alt={{this.title}} />
+        </a>
+        <div class='card-body'>
+          <a href='/courses/{{this.slug}}'>
+            <h5 class='card-title'>{{this.title}}</h5>
+          </a>
+          <p class='card-text'>{{this.description}}</p>
+          <a href='#' class='btn btn-primary'>Buy</a>
+        </div>
+      </div>
+    {{/each}}
+
+  </div>
+</div>

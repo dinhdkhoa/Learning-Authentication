@@ -1,10 +1,12 @@
 import express from 'express'
 import SiteRoutes from './site.js'
 import NewsRoutes from './news.js'
+import CoursesRouter from './courses.js'
 
 const router = express.Router()
-router.use('/', SiteRoutes)
+router.use('/courses', CoursesRouter)
 router.use('/news', NewsRoutes)
+router.use('/', SiteRoutes)
 
 const routes = router
 

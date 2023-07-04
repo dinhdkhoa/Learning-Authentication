@@ -4,7 +4,9 @@ const siteControllers = {
   async getHomePage(req, res) {
     try {
       const courses = await CoursesModel.find({})
-      res.json(courses)
+      res.render('home', {
+        courses: courses.map((course) => course.toJSON())
+      })
     } catch (error) {
       res.status(400).json({ error })
     }

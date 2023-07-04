@@ -1,0 +1,20 @@
+<div class='container px-4'>
+  <div class='row justify-content-center mt-5'>
+    <div class='col-3'>
+      <a href='#' class='btn btn-primary'>Buy</a>
+    </div>
+    <div class='col-9'>
+      <h2>{{course.title}}</h2>
+      <iframe
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/{{course.vidId}}'
+        title='YouTube video player'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        allowfullscreen
+      ></iframe>
+      <p class='mt-5'>{{course.description}}</p>
+    </div>
+  </div>
+</div>
