@@ -15,8 +15,9 @@ connect()
 const app = express()
 const port = 4000
 
-//Setup Static path to public folder
+//Setup Static path to public folder for css
 app.use(express.static(path.join(__dirname, 'public')))
+app.use('/react', express.static(path.join(__dirname, 'dist')))
 
 //HTTP logger
 // app.use(morgan("combined"))

@@ -1,15 +1,22 @@
-import CoursesModel from '../models/Course.js'
+import CourseModel from '../models/Course.js'
 
 const coursesControllers = {
-  async getHomePage(req, res, next) {
+  async getCourseDetail(req, res, next) {
     const { slug } = req.params
-    const course = await CoursesModel.findOne({ slug }).exec()
-    console.log(course.toObject())
+    const course = await CourseModel.findOne({ slug }).exec()
     if (course) {
-      res.render('courseDetail', { course: course.toObject() })
+      res.render('courses/detail', { course: course.toObject() })
       return
     }
     res.status(400).render('page404')
+  },
+  getCreatePage(req, res) {
+    res.render('courses/create')
+  },
+  async postCourseFromCreatePage(req, res) {
+    const course = new CourseModel(req.body)
+    await course.save()
+    res.redirect('/')
   }
 }
 

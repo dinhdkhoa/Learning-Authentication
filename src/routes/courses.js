@@ -3,7 +3,8 @@ import coursesControllers from '../app/controllers/CoursesControllers.js'
 
 const router = express.Router()
 
-router.route('/:slug').get(coursesControllers.getHomePage)
+router.route('/create').get(coursesControllers.getCreatePage).post(coursesControllers.postCourseFromCreatePage)
+router.route('/:slug').get(coursesControllers.getCourseDetail)
 
 const CoursesRouter = router
 

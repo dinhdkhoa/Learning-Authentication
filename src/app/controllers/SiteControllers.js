@@ -1,9 +1,9 @@
-import CoursesModel from '../models/Course.js'
+import CourseModel from '../models/Course.js'
 
 const siteControllers = {
   async getHomePage(req, res) {
     try {
-      const courses = await CoursesModel.find({})
+      const courses = await CourseModel.find({})
       res.render('home', {
         courses: courses.map((course) => course.toJSON())
       })
