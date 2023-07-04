@@ -1,0 +1,25 @@
+<form method='POST' action='/courses/edit/{{course._id}}?_method=PUT'>
+  <div class='container mt-5 w-25'>
+    <div class='mb-3 mt-4'>
+      <label for='title' class='form-label'>Title</label>
+      <input type='text' class='form-control' id='title' name='title' value='{{course.title}}' />
+    </div>
+    <div class='mb-3 mt-4'>
+      <label for='description' class='form-label'>Description</label>
+      <textarea type='text' class='form-control' id='description' name='description'>{{course.description}}</textarea>
+    </div>
+    <div class='mb-3 mt-4'>
+      <label for='img' class='form-label'>Image Link</label>
+      <input type='text' class='form-control' id='img' name='img' value='{{course.img}}' />
+    </div>
+    <div class='mb-3 mt-4'>
+      <label for='vidId' class='form-label'>Youtube Video ID</label>
+      <input type='text' class='form-control' id='vidId' name='vidId' value='{{course.vidId}}' />
+    </div>
+    <div class='mb-3 mt-4'>
+      <label for='level' class='form-label'>Level</label>
+      <input type='text' class='form-control' id='level' name='level' value='{{course.level}}' />
+    </div>
+    <button type='submit' class='mt-2 btn btn-primary'>Edit Couurse</button>
+  </div>
+</form>

@@ -5,6 +5,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import routes from './routes/index.js'
 import connect from './config/db/index.js'
+import methodOverride from 'method-override'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -17,7 +18,6 @@ const port = 4000
 
 //Setup Static path to public folder for css
 app.use(express.static(path.join(__dirname, 'public')))
-app.use('/react', express.static(path.join(__dirname, 'dist')))
 
 //HTTP logger
 // app.use(morgan("combined"))
@@ -29,9 +29,18 @@ app.use(
   })
 )
 app.use(express.json())
+app.use(methodOverride('_method', 'POST'))
 
 //Template Engine
-app.engine('.hbs', engine({ extname: '.hbs' }))
+app.engine(
+  '.hbs',
+  engine({
+    extname: '.hbs',
+    helpers: {
+      sum: (a, b) => a + b
+    }
+  })
+)
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'resources/views'))
 

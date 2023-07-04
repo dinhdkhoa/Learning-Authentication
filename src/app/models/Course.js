@@ -9,6 +9,7 @@ const CourseSchema = new mongoose.Schema(
     description: { type: String, maxLength: 600 },
     img: { type: String },
     vidId: { type: String, required: true },
+    level: { type: String, required: true },
     slug: { type: String, slug: 'title', unique: true }
   },
   {

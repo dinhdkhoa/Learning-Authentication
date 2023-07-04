@@ -10,12 +10,26 @@ const coursesControllers = {
     }
     res.status(400).render('page404')
   },
+  async getCourseDetailToEdit(req, res, next) {
+    const { id } = req.params
+    const course = await CourseModel.findOne({ _id: id }).exec()
+    if (course) {
+      res.render('courses/edit', { course: course.toObject() })
+      return
+    }
+    res.status(400).render('page404')
+  },
   getCreatePage(req, res) {
     res.render('courses/create')
   },
   async postCourseFromCreatePage(req, res) {
     const course = new CourseModel(req.body)
     await course.save()
+    res.redirect('/')
+  },
+  async editCourse(req, res) {
+    const { id } = req.params
+    await CourseModel.findOneAndUpdate({ _id: id }, req.body)
     res.redirect('/')
   }
 }
