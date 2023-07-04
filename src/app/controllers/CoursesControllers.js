@@ -30,7 +30,18 @@ const coursesControllers = {
   async editCourse(req, res) {
     const { id } = req.params
     await CourseModel.findOneAndUpdate({ _id: id }, req.body)
-    res.redirect('/')
+    res.redirect('/me/courses')
+  },
+  async destroyCourse(req, res) {
+    const { id } = req.params
+    try {
+      await CourseModel.deleteOne({ _id: id })
+      res.status(200).send('Deleted')
+    } catch (error) {
+      // Handle the error
+      console.error(error)
+      res.status(500).send('Internal Server Error')
+    }
   }
 }
 

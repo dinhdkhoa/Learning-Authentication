@@ -16,10 +16,52 @@
           <td>{{this.title}}</td>
           <td>{{this.level}}</td>
           <td>{{this.createdAt}}</td>
-          <td><a href='/courses/edit/{{this._id}}'>Edit</a> | <a href=''>Delete</a></td>
+          <td><a href='/courses/edit/{{this._id}}'>Edit</a>
+            |
+            <a
+              href=''
+              type='button'
+              data-bs-toggle='modal'
+              data-bs-target='#deleteModal'
+              data-bs-id={{this._id}}
+            >Delete</a></td>
         </tr>
       {{/each}}
     </tbody>
   </table>
-
 </div>
+
+<!-- Modal -->
+<div
+  class='modal fade'
+  id='deleteModal'
+  data-bs-backdrop='static'
+  data-bs-keyboard='false'
+  tabindex='-1'
+  aria-labelledby='staticBackdropLabel'
+  aria-hidden='true'
+>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h1 class='modal-title fs-5' id='staticBackdropLabel'>Deleting Course</h1>
+        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+      </div>
+      <div class='modal-body'>
+        Are you sure you want to delete ?
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
+        <button type='button' class='btn btn-danger' id='fetchButton'>Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const exampleModal = document.getElementById('deleteModal'); if (exampleModal) {
+  exampleModal.addEventListener('show.bs.modal', event => { const button = event.relatedTarget; const id =
+  button.getAttribute('data-bs-id'); const fetchButton = document.getElementById('fetchButton'); fetchButton.onclick =
+  () => { fetch(`/courses/edit/${id}`, { method: 'DELETE' }).then(response => { if (response.ok) { window.location.href
+  = '/me/courses'; } }); } }) }
+</script>
