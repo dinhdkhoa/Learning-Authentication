@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 import slug from 'mongoose-slug-updater'
-
-mongoose.plugin(slug)
+import mongoose_delete from 'mongoose-delete'
 
 const CourseSchema = new mongoose.Schema(
   {
@@ -16,6 +15,9 @@ const CourseSchema = new mongoose.Schema(
     timestamps: true
   }
 )
+
+mongoose.plugin(slug)
+CourseSchema.plugin(mongoose_delete, { overrideMethods: 'all' })
 
 const CourseModel = mongoose.model('Course', CourseSchema)
 export default CourseModel

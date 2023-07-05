@@ -1,5 +1,7 @@
 <div class='container px-4 table-striped'>
-  <table class='table'>
+  <h1 class='mt-3'>My Courses</h1>
+  <a href='/me/courses/deleted-courses'>Deleted Course</a>
+  <table class='table mt-3'>
     <thead>
       <tr>
         <th scope='col'>#</th>
@@ -26,6 +28,8 @@
               data-bs-id={{this._id}}
             >Delete</a></td>
         </tr>
+      {{else}}
+        <td colspan='5' class='text-center'>No course found. <a href='/me/courses'>Add Course</a></td>
       {{/each}}
     </tbody>
   </table>
@@ -58,10 +62,12 @@
   </div>
 </div>
 
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
 <script>
-  const exampleModal = document.getElementById('deleteModal'); if (exampleModal) {
-  exampleModal.addEventListener('show.bs.modal', event => { const button = event.relatedTarget; const id =
-  button.getAttribute('data-bs-id'); const fetchButton = document.getElementById('fetchButton'); fetchButton.onclick =
-  () => { fetch(`/courses/edit/${id}`, { method: 'DELETE' }).then(response => { if (response.ok) { window.location.href
-  = '/me/courses'; } }); } }) }
+  $(document).ready(function() { const exampleModal = $('#deleteModal'); if (exampleModal.length) {
+  exampleModal.on('show.bs.modal', function(event) { const button = $(event.relatedTarget); const id =
+  button.data('bs-id'); const fetchButton = $('#fetchButton'); fetchButton.on('click', function() {
+  fetch(`/courses/edit/${id}`, { method: 'DELETE' }) .then(function(response) { if (response.ok) { window.location.href
+  = '/me/courses'; } }); }); }); } });
+
 </script>
