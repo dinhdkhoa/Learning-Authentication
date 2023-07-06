@@ -12,3 +12,10 @@ img {
   color: white;
   animation: none;
 }
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: -1;
+  margin-right: 10px;
+}

@@ -17,7 +17,7 @@ const CourseSchema = new mongoose.Schema(
 )
 
 mongoose.plugin(slug)
-CourseSchema.plugin(mongoose_delete, { overrideMethods: 'all' })
+CourseSchema.plugin(mongoose_delete, { deletedAt: true, overrideMethods: 'all' })
 
 const CourseModel = mongoose.model('Course', CourseSchema)
 export default CourseModel

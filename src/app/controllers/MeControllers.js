@@ -4,8 +4,10 @@ const meControllers = {
   async getCourses(req, res) {
     try {
       const courses = await CourseModel.find()
+      const deleteCoursesCount = await CourseModel.countDocumentsDeleted()
       res.render('me/my_courses', {
-        courses: courses.map((course) => course.toJSON())
+        courses: courses.map((course) => course.toJSON()),
+        deleteCoursesCount
       })
     } catch (error) {
       res.status(400).json({ error })

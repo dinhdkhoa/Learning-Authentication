@@ -1,6 +1,6 @@
 <div class='container px-4 table-striped'>
   <h1 class='mt-3'>My Courses</h1>
-  <a href='/me/courses/deleted-courses'>Deleted Course</a>
+  <a href='/me/courses/deleted-courses' class='text-decoration-none'>🚮 Deleted Course ({{deleteCoursesCount}}) </a>
   <table class='table mt-3'>
     <thead>
       <tr>
@@ -29,7 +29,7 @@
             >Delete</a></td>
         </tr>
       {{else}}
-        <td colspan='5' class='text-center'>No course found. <a href='/me/courses'>Add Course</a></td>
+        <td colspan='5' class='text-center'>No course found. <a href='/courses/create'>Add Course</a></td>
       {{/each}}
     </tbody>
   </table>
