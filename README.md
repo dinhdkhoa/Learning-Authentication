@@ -1,4 +1,4 @@
-# A SSR CRUD application help managing online courses.
+# A SSR CRUD application helps managing online courses.
 
 ## Technology used:
 
